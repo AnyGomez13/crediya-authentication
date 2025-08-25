@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: authentication
+  devtools:
+    add-properties: false
+
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/crediya_authentication
+    username: crediya
+    password: crediya
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,prometheus"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+cors:
+  allowed-origins: "http://localhost:4200,http://localhost:8080"
